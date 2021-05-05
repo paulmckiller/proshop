@@ -15,11 +15,12 @@ const ProductScreen = ({ match }) => {
             setProduct(data);
         }
 
+        
         fetchProduct();
-    })
+    }, [match])
 
     return (
-        <>
+        <>  
             <Row>
                 <Col md={6}>
                     <Image src={product.image} alt="pic" variant="flushed" fluid />

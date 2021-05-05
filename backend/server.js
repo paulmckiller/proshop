@@ -30,6 +30,10 @@ const app = express();
 
 app.listen(5000, console.log("Server is up on 5000"));
 
+app.get('/', (req,res) => {
+    res.send('Api is working....')
+})
+
 app.get('/api/product', (req, res) => {
     res.json(products);
 })
