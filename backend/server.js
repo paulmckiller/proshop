@@ -1,7 +1,6 @@
-const express = require('express');
-const products = require('./data/products');
-
-const app = express();
+import express from 'express';
+import dotenv from 'dotenv';
+import products from './data/products.js';
 
 //#region 
 // app.use(express.json({ limit: '50mb' }));
@@ -28,7 +27,9 @@ const app = express();
 // });
 //#endregion
 
-app.listen(5000, console.log("Server is up on 5000"));
+dotenv.config();
+
+const app = express();
 
 app.get('/', (req,res) => {
     res.send('Api is working....')
@@ -42,3 +43,7 @@ app.get('/api/product/:id', (req, res) => {
     const product = products.find((p) => p._id === req.params.id);
     res.json(product);
 })
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, console.log(`Server is up in ${process.env.NODE_ENV} mode on ${PORT}`));
