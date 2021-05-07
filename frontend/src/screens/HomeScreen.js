@@ -16,7 +16,7 @@ const HomeScreen = () => {
 
         // fetchProducts();
 
-        axios.get('/api/product').then(({data}) => setProducts(data));
+        axios.get('/api/products').then(({data}) => setProducts(data));
     }, [])
 
     return (
